@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#bfe6ee" />
+    <meta name="description" content="奶油色治愈系网页虚拟宠物房间原型" />
+    <title>布丁小屋 · Room UI V1</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/room.css" />
+    <link rel="stylesheet" href="./css/ui.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <script src="./js/app.js" defer></script>
+    <script src="./js/interactions.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell" aria-label="布丁小屋虚拟宠物游戏">
+      <section class="room" aria-label="宠物房间">
+        <div class="wall-pattern" aria-hidden="true"></div>
+
+        <header class="hud" aria-label="宠物状态">
+          <div class="stat" data-stat="happiness">
+            <span class="stat__icon" aria-hidden="true">♥</span>
+            <span class="stat__body"><span class="stat__name">快乐</span><span class="stat__track"><i style="--value:80%"></i></span></span>
+            <strong>80</strong>
+          </div>
+          <div class="stat" data-stat="fullness">
+            <span class="stat__icon" aria-hidden="true">♨</span>
+            <span class="stat__body"><span class="stat__name">饱食</span><span class="stat__track"><i style="--value:60%"></i></span></span>
+            <strong>60</strong>
+          </div>
+          <div class="stat" data-stat="energy">
+            <span class="stat__icon" aria-hidden="true">ϟ</span>
+            <span class="stat__body"><span class="stat__name">精力</span><span class="stat__track"><i style="--value:70%"></i></span></span>
+            <strong>70</strong>
+          </div>
+          <div class="coin-pill" aria-label="金币 320"><span aria-hidden="true">●</span><strong>320</strong></div>
+        </header>
+
+        <div class="room-layer wall-decor" aria-hidden="true">
+          <div class="shelf"><span class="book book--green"></span><span class="book book--yellow"></span><span class="mini-friend">•ᴗ•</span></div>
+          <div class="hanging-note hanging-note--paw">●</div>
+          <div class="hanging-note hanging-note--heart">♥</div>
+          <div class="picture picture--flower"><span>✿</span></div>
+          <div class="picture picture--pet"><span>˶ᵔ ᵕ ᵔ˶</span></div>
+        </div>
+
+        <button class="scene-object lamp" data-object="lamp" aria-label="打开吊灯">
+          <span class="lamp__cord"></span><span class="lamp__shade"><i>૮・ﻌ・ა</i></span><span class="lamp__glow"></span>
+        </button>
+
+        <button class="scene-object window" data-object="window" aria-label="看看窗外">
+          <span class="window__sky"><i class="cloud cloud--one"></i><i class="cloud cloud--two"></i><i class="hill hill--one"></i><i class="hill hill--two"></i></span>
+          <span class="window__frame window__frame--v"></span><span class="window__frame window__frame--h"></span>
+          <span class="curtain curtain--left"></span><span class="curtain curtain--right"></span>
+          <span class="window__plant">✿</span>
+        </button>
+
+        <button class="scene-object cabinet" data-object="cabinet" aria-label="查看柜子">
+          <span class="cabinet__top"><i class="plant"><b></b><b></b><b></b><b></b></i><i class="frame">♥</i></span>
+          <span class="cabinet__drawer"><i></i></span><span class="cabinet__drawer"><i>●</i></span>
+          <span class="cabinet__leg cabinet__leg--left"></span><span class="cabinet__leg cabinet__leg--right"></span>
+        </button>
+
+        <div class="floor" aria-hidden="true"><span class="floor-line floor-line--one"></span><span class="floor-line floor-line--two"></span><span class="floor-line floor-line--three"></span></div>
+        <div class="rug" aria-hidden="true"><span></span></div>
+
+        <button class="scene-object bed" data-object="bed" aria-label="去小床睡觉">
+          <span class="bed__cushion"></span><span class="bed__rim"></span><span class="bed__bone">◆</span>
+        </button>
+
+        <button class="scene-object food-bowl" data-object="food-bowl" aria-label="去饭盆吃饭">
+          <span class="food-bowl__food">● ● ● ● ●</span><span class="food-bowl__body"><i>૮・ﻌ・ა</i></span>
+        </button>
+
+        <button class="scene-object ball" data-object="ball" aria-label="玩小球"><span></span></button>
+
+        <div class="pet-zone" aria-label="宠物活动区域">
+          <button class="scene-object pet" data-object="pet" aria-label="摸摸宠物">
+            <span class="pet__ear pet__ear--left"></span><span class="pet__ear pet__ear--right"></span>
+            <span class="pet__body"><i class="pet__hat"></i><i class="pet__eye pet__eye--left"></i><i class="pet__eye pet__eye--right"></i><i class="pet__face">ω</i><i class="pet__arm pet__arm--left"></i><i class="pet__arm pet__arm--right"></i><i class="pet__foot pet__foot--left"></i><i class="pet__foot pet__foot--right"></i></span>
+            <span class="pet__shadow"></span>
+          </button>
+        </div>
+
+        <div class="effects" aria-live="polite"><span class="feedback-bubble"></span></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="宠物功能">
+        <button class="nav-action nav-action--food" data-action="food"><span class="nav-action__icon">♨</span><small>吃饭</small></button>
+        <button class="nav-action nav-action--play" data-action="play"><span class="nav-action__icon">◉</span><small>玩耍</small></button>
+        <button class="nav-action nav-action--clean" data-action="clean"><span class="nav-action__icon">✦</span><small>清洁</small></button>
+        <button class="nav-action nav-action--sleep" data-action="sleep"><span class="nav-action__icon">☾</span><small>睡觉</small></button>
+        <button class="nav-action nav-action--dress" data-action="dress"><span class="nav-action__icon">♟</span><small>换装</small></button>
+      </nav>
+
+      <section class="bottom-sheet" aria-hidden="true" aria-label="功能面板">
+        <div class="bottom-sheet__handle"></div><h2>功能准备中</h2><p>这里会在后续版本放入可选择的物品。</p>
+      </section>
+    </main>
+  </body>
+</html>
+

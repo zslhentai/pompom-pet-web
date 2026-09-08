@@ -1,0 +1,37 @@
+:root {
+  --cream: #fff9dc;
+  --yellow: #ffd873;
+  --sky: #bfe6ee;
+  --sky-deep: #79c9eb;
+  --wood: #e8ad72;
+  --wood-dark: #9c633e;
+  --green: #74ad61;
+  --brown: #643b31;
+  --pink: #f4a5a4;
+  --purple: #b8a5ea;
+  --mint: #a9ddb0;
+  --outline: #704237;
+  --nav-height: 104px;
+  font-family: ui-rounded, "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif;
+  color: var(--brown);
+  background: #eaf4ef;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; overflow-x: hidden; }
+body { min-height: 100svh; background: radial-gradient(circle at 50% 10%, #fffdf0, #d9eee7 70%); }
+button { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
+button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.game-shell { position: relative; width: min(100%, 520px); min-height: 100svh; margin: 0 auto; overflow: hidden; background: var(--sky); box-shadow: 0 0 50px rgb(92 112 94 / .16); }
+.scene-object { position: absolute; margin: 0; padding: 0; border: 0; background: none; cursor: pointer; touch-action: manipulation; }
+.room-layer { position: absolute; inset: 0; pointer-events: none; }
+
+@media (min-width: 720px) {
+  body::before, body::after { content: ""; position: fixed; inset-block: 0; width: calc((100vw - 520px) / 2); opacity: .3; background: repeating-linear-gradient(90deg, transparent 0 48px, rgb(255 255 255 / .35) 48px 96px); }
+  body::before { left: 0; } body::after { right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
