@@ -30,6 +30,18 @@
   100% { opacity: 0; transform: translate(-50%, -8px) scale(0.96); }
 }
 
+@keyframes hearts-up {
+  0% { opacity: 0; transform: translateY(8px) scale(0.65); }
+  22% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-52px) scale(1.08); }
+}
+
+@keyframes option-bounce {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(0.92); }
+  72% { transform: scale(1.04); }
+}
+
 .pet { animation: pet-idle 3.3s ease-in-out infinite; }
 .cabinet img { transform-origin: 35% 15%; animation: cabinet-sway 5.2s ease-in-out infinite; }
 .window__shine::after { animation: window-glint 8s ease-in-out infinite; }
@@ -37,3 +49,6 @@
 .ball.is-reacting { animation: ball-hop 0.5s ease; }
 .pet.is-reacting { animation: object-pop 0.45s ease; }
 .feedback-bubble.is-visible { animation: feedback-in 1.5s ease both; }
+.pet-hearts.is-visible i { animation: hearts-up 1.1s ease-out both; }
+.pet-hearts.is-visible i:nth-child(2) { animation-delay: 0.1s; }
+.pet-hearts.is-visible i:nth-child(3) { animation-delay: 0.2s; }

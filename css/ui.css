@@ -165,21 +165,66 @@
   right: 10px;
   bottom: calc(var(--nav-height) + env(safe-area-inset-bottom) - 5px);
   left: 10px;
-  min-height: 150px;
-  padding: 16px 22px 24px;
+  min-height: 246px;
+  padding: 14px 18px 20px;
   border: 3px solid rgb(118 80 68 / 0.82);
   border-radius: 26px 26px 12px 12px;
   background: #fff9e8;
   box-shadow: 0 -8px 30px rgb(76 52 39 / 0.18);
   transform: translateY(118%);
-  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  visibility: hidden;
+  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.32s;
 }
 
-.bottom-sheet.is-open { transform: translateY(0); }
+.bottom-sheet.is-open { transform: translateY(0); visibility: visible; transition-delay: 0s; }
 .bottom-sheet__handle { width: 44px; height: 5px; margin: 0 auto 14px; border-radius: 8px; background: #d8b98c; }
 .bottom-sheet__close { position: absolute; top: 10px; right: 13px; width: 44px; height: 44px; border: 0; background: none; font-size: 25px; cursor: pointer; }
-.bottom-sheet h2 { margin: 0 0 6px; font-size: 18px; }
-.bottom-sheet p { margin: 0; color: #8a6b57; font-size: 13px; }
+.bottom-sheet__header { padding-right: 38px; }
+.bottom-sheet__eyebrow { display: block; margin-bottom: 2px; color: #b17b59; font-size: 10px; font-weight: 900; letter-spacing: 0.12em; }
+.bottom-sheet h2 { margin: 0 0 4px; font-size: 18px; }
+.bottom-sheet p { margin: 0; color: #8a6b57; font-size: 12px; }
+
+.bottom-sheet__options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 13px 0 11px;
+}
+
+.sheet-option {
+  display: grid;
+  min-width: 0;
+  min-height: 74px;
+  place-items: center;
+  gap: 2px;
+  padding: 7px 3px;
+  border: 2px solid rgb(118 80 68 / 0.34);
+  border-radius: 18px;
+  background: #fffdf4;
+  box-shadow: 0 3px 0 rgb(118 80 68 / 0.1);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.sheet-option span { font-size: 27px; line-height: 1; }
+.sheet-option strong { overflow: hidden; max-width: 100%; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.sheet-option:active { transform: translateY(2px) scale(0.96); }
+.sheet-option.is-selected { animation: option-bounce 0.38s ease; border-color: #d9a16e; background: #fff5d5; }
+.bottom-sheet__status { min-height: 18px; text-align: center; }
+
+.sheet-backdrop {
+  position: absolute;
+  z-index: 28;
+  inset: 0;
+  border: 0;
+  background: rgb(80 57 43 / 0.12);
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.sheet-backdrop.is-visible { opacity: 1; visibility: visible; transition-delay: 0s; }
 
 @media (max-width: 360px) {
   .hud { right: 5px; left: 5px; gap: 3px; }

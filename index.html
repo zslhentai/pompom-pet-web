@@ -64,7 +64,10 @@
           </button>
         </div>
 
-        <div class="effects" aria-live="polite"><span class="feedback-bubble"></span></div>
+        <div class="effects" aria-live="polite">
+          <span class="pet-hearts" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i></span>
+          <span class="feedback-bubble"></span>
+        </div>
       </section>
 
       <nav class="bottom-nav" aria-label="宠物功能">
@@ -75,11 +78,18 @@
         <button class="nav-action nav-action--dress" data-action="dress"><span class="nav-action__icon"><img src="./assets/generated/icon-dress.webp" alt="" /></span><small>换装</small></button>
       </nav>
 
-      <section class="bottom-sheet" aria-hidden="true" aria-label="功能面板">
-        <div class="bottom-sheet__handle"></div>
+      <button class="sheet-backdrop" type="button" aria-label="关闭功能面板" tabindex="-1"></button>
+
+      <section class="bottom-sheet" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="sheet-title" inert>
+        <div class="bottom-sheet__handle" aria-hidden="true"></div>
         <button class="bottom-sheet__close" type="button" aria-label="关闭功能面板">×</button>
-        <h2>功能准备中</h2>
-        <p>这里会在后续版本放入可选择的物品。</p>
+        <header class="bottom-sheet__header">
+          <span class="bottom-sheet__eyebrow">选择一个</span>
+          <h2 id="sheet-title">功能准备中</h2>
+          <p>这里会在后续版本放入可选择的物品。</p>
+        </header>
+        <div class="bottom-sheet__options" role="list"></div>
+        <p class="bottom-sheet__status" aria-live="polite">目前为交互预览，不会改变宠物数值。</p>
       </section>
     </main>
   </body>

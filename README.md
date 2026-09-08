@@ -4,13 +4,15 @@
 
 ## 当前阶段
 
-Room UI prototype（Room UI V1）
+Room interaction prototype（Interaction UI V1）
 
 - GitHub Pages 优先的纯静态前端
 - 390 × 844 手机竖屏为主要设计基准
 - HTML / CSS / Vanilla JavaScript
 - 宠物、饭盆、球、小床、窗户、柜子、吊灯均为独立可交互图层
-- 已预留底部功能抽屉和宠物动画结构
+- 已实现五类功能共用的底部抽屉交互骨架
+- 饭盆、球、小床可联动对应功能；宠物和窗户带轻量反馈
+- 当前选项仅为预览，不会改变宠物数值
 
 ## 本地预览
 

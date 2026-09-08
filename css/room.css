@@ -118,6 +118,21 @@
   transform: translate(-50%, 8px);
 }
 
+.pet-hearts {
+  position: absolute;
+  top: 56%;
+  left: 62%;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  color: #ef7680;
+  font-size: 18px;
+  opacity: 0;
+}
+
+.pet-hearts i { display: block; opacity: 0; font-style: normal; text-shadow: 0 2px #fff5df; }
+.pet-hearts i:nth-child(2) { font-size: 25px; }
+
 @media (max-height: 700px) {
   :root { --nav-height: 88px; }
 
