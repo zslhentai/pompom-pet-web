@@ -4,8 +4,9 @@
   const sheet = document.querySelector(".bottom-sheet");
   const sheetTitle = sheet.querySelector("h2");
   const sheetText = sheet.querySelector("p");
+  const closeButton = sheet.querySelector(".bottom-sheet__close");
   const messages = {
-    pet: "摸摸～今天也很开心！",
+    pet: "奶糖被摸得眯起眼啦！",
     "food-bowl": "饭饭马上就好！",
     ball: "要一起玩球吗？",
     bed: "软乎乎的小床～",
@@ -43,5 +44,10 @@
     sheet.setAttribute("aria-hidden", "false");
     console.log(`[Room UI V1] open drawer: ${button.dataset.action}`);
   });
-})();
 
+  closeButton.addEventListener("click", () => {
+    sheet.classList.remove("is-open");
+    sheet.setAttribute("aria-hidden", "true");
+    document.querySelectorAll(".nav-action").forEach((item) => item.classList.remove("is-active"));
+  });
+})();

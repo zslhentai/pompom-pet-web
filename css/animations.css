@@ -1,12 +1,39 @@
-@keyframes pet-idle { 0%,100%{transform:translateX(-50%) translateY(0) rotate(-.5deg)} 50%{transform:translateX(-50%) translateY(-4px) rotate(.5deg)} }
-@keyframes blink { 0%,44%,48%,100%{transform:scaleY(1)} 46%{transform:scaleY(.08)} }
-@keyframes cloud-drift { from{translate:-12px 0} to{translate:12px 0} }
-@keyframes plant-sway { 0%,100%{transform:rotate(-1deg)} 50%{transform:rotate(2deg)} }
-@keyframes object-pop { 0%,100%{scale:1} 45%{scale:1.07} }
-@keyframes ball-hop { 0%,100%{translate:0 0;rotate:0} 45%{translate:0 -14px;rotate:18deg} }
-@keyframes feedback-in { 0%{opacity:0;transform:translate(-50%,8px) scale(.9)} 22%,75%{opacity:1;transform:translate(-50%,0) scale(1)} 100%{opacity:0;transform:translate(-50%,-8px) scale(.95)} }
-.pet { animation:pet-idle 3.2s ease-in-out infinite; }
-.cloud { animation:cloud-drift 8s ease-in-out infinite alternate; }.cloud--two{animation-duration:11s}
-.plant { transform-origin:50% 100%; animation:plant-sway 4s ease-in-out infinite; }
-.scene-object.is-reacting:not(.pet):not(.ball){animation:object-pop .35s ease}.ball.is-reacting{animation:ball-hop .5s ease}.pet.is-reacting{animation:object-pop .45s ease}.feedback-bubble.is-visible{animation:feedback-in 1.5s ease both}
+@keyframes pet-idle {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-0.4deg) scaleY(1); }
+  50% { transform: translateX(-50%) translateY(-4px) rotate(0.4deg) scaleY(1.012); }
+}
 
+@keyframes object-pop {
+  0%, 100% { scale: 1; }
+  45% { scale: 1.06; }
+}
+
+@keyframes ball-hop {
+  0%, 100% { translate: 0 0; rotate: 0; }
+  45% { translate: 0 -13px; rotate: 18deg; }
+}
+
+@keyframes cabinet-sway {
+  0%, 100% { rotate: -0.35deg; }
+  50% { rotate: 0.5deg; }
+}
+
+@keyframes window-glint {
+  0%, 68% { transform: translateX(0) skewX(-18deg); opacity: 0; }
+  75% { opacity: 1; }
+  100% { transform: translateX(420%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes feedback-in {
+  0% { opacity: 0; transform: translate(-50%, 8px) scale(0.92); }
+  20%, 76% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -8px) scale(0.96); }
+}
+
+.pet { animation: pet-idle 3.3s ease-in-out infinite; }
+.cabinet img { transform-origin: 35% 15%; animation: cabinet-sway 5.2s ease-in-out infinite; }
+.window__shine::after { animation: window-glint 8s ease-in-out infinite; }
+.scene-object.is-reacting:not(.pet, .ball) { animation: object-pop 0.36s ease; }
+.ball.is-reacting { animation: ball-hop 0.5s ease; }
+.pet.is-reacting { animation: object-pop 0.45s ease; }
+.feedback-bubble.is-visible { animation: feedback-in 1.5s ease both; }
